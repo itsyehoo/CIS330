@@ -1,0 +1,17 @@
+#!/bin/bash
+
+list=$(cat valid_list)
+
+for i in $list ; do
+    rm $i/pass
+
+   #./run_one_w_image $i
+   #if [[ -f sandbox/3H.pnm ]] ; then
+      #mv sandbox/3H.pnm sandbox/$i.pnm
+      #pnmtopng sandbox/$i.pnm > sandbox/$i.png
+   #fi
+done
+
+num_passed=$(ls -1 */pass | wc -l)
+num_tests=$(cat valid_list | wc -l)
+echo "After clean, You have $num_passed out of $num_tests tests."
